@@ -95,7 +95,7 @@ namespace MemLibNative {
 				const pin_ptr<Byte> p_data = &data[0];
 				const auto count = cs_disasm(m_Handle, p_data, data->Length, address, 0, &insn);
 				auto results = gcnew List<DisasmInstruction>();
-				for(auto i = 0; i < count; i++) {
+				for(size_t i = 0; i < count; i++) {
 					DisasmInstruction dinsn;
 					dinsn.Size = insn[i].size;
 					dinsn.Address = insn[i].address;
@@ -117,7 +117,7 @@ namespace MemLibNative {
 					return false;
 				}
 				instructions = gcnew List<DisasmInstruction>();
-				for (auto i = 0; i < count; i++) {
+				for (size_t i = 0; i < count; i++) {
 					if(insn[i].size <= 0) {
 						instructions = nullptr;
 						return false;
